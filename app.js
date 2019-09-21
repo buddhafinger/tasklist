@@ -1,6 +1,6 @@
 // Define UI Vars
 const form = document.querySelector('#task-form');
-const taskList = document.querySelector('.selection');
+const taskList = document.querySelector('.collection');
 const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
@@ -22,6 +22,7 @@ function addTask(e) {
   // Create li element
   const li = document.createElement('li');
 
+
   // Add class - use collection-item to ensure formating is picked up in materialize.
 
   li.className = 'collection-item'; 
@@ -40,6 +41,8 @@ function addTask(e) {
   //Append the link to li
   li.appendChild(link);
 
+
+
   // Append link to ul
   taskList.appendChild(li);
 
@@ -49,5 +52,5 @@ function addTask(e) {
 console.log(li);
 
 //prevent default form submit action.
-//e.preventDefault();
+e.preventDefault();
 }
