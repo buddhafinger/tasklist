@@ -1,4 +1,4 @@
-// Define UI Vars
+// Define UI Vars either by classname or ID.
 const form = document.querySelector('#task-form');
 const taskList = document.querySelector('.collection');
 const clearBtn = document.querySelector('.clear-tasks');
@@ -9,10 +9,9 @@ const taskInput = document.querySelector('#task');
 loadEventListerners();
 
 
-
 //Events to listen for events and trigger actions.
 function loadEventListerners() {
-  // Add task event
+  //Add task event
   form.addEventListener('submit', addTask);
 
   //remove task event
@@ -87,11 +86,21 @@ function clearTasks() {
 
   //Faster method
   if(confirm('Are you sure you want to delete all tasks?')) {
+    //While there is a first child.
     while(taskList.firstChild) {
+    //remove it.
     taskList.removeChild(taskList.firstChild);
     }
   }
 }
+
+
+// Filter tasks
+// function filterTasks(e) {
+//   const text = e.target.value;
+
+//   console.log(text);
+// }
 
 
 
@@ -106,7 +115,7 @@ function filterTasks(e) {
   //console.log(text);
 
   //Use collection task items as iterator
-  document.querySelectorAll('.collection-item').forEach()
+  document.querySelectorAll('.collection-item').forEach
   (function(task) {
     //Get value for each item
     const item = task.firstChild.textContent;
