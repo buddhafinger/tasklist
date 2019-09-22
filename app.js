@@ -5,9 +5,12 @@ const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
+//Load Event Listerners
 loadEventListerners();
 
-//LoadEvent Listerners - Listen for submit event and add task.
+
+
+//Events to listen for events and trigger actions.
 function loadEventListerners() {
   // Add task event
   form.addEventListener('submit', addTask);
@@ -18,6 +21,8 @@ function loadEventListerners() {
   //Clear tasks event
   clearBtn.addEventListener('click',clearTasks);
 
+  // Filter tasks event
+  filter.addEventListener('keyup',filterTasks);
 }
 
 
@@ -50,18 +55,18 @@ function addTask(e) {
   li.appendChild(link);
 
 
-
   // Append link to ul
   taskList.appendChild(li);
 
   // Clear input 
   taskInput.value = '';
 
-console.log(li);
 
 //prevent default form submit action.
 e.preventDefault();
 }
+
+
 
 
 // Remove task
@@ -86,4 +91,34 @@ function clearTasks() {
     taskList.removeChild(taskList.firstChild);
     }
   }
+}
+
+
+
+// Filter tasks
+
+//Apply function on event 
+function filterTasks(e) {
+
+  //create text variable to capture event text.
+  const text = e.target.value.toLowerCase();
+  //log text for debug.
+  //console.log(text);
+
+  //Use collection task items as iterator
+  document.querySelectorAll('.collection-item').forEach()
+  (function(task) {
+    //Get value for each item
+    const item = task.firstChild.textContent;
+
+    //If item matches text content of text display it.
+    if(item.toLowerCase().indexOf(text) != -1){
+      task.style.display = 'block';
+
+    //if it doesn't match then show results
+    } else {
+      task.style.display = 'none';
+    }
+  });
+
 }
